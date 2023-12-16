@@ -1,0 +1,12 @@
+#logoecommerce {
+    height: 3.5rem;
+}
+
+.animate-hove-card {
+    transition: transform 0.2s ease-in;
+}
+
+.animate-hover-card:hover {
+    cursor: pointer;
+    transform: scale(1.03)
+}
