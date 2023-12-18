@@ -26,7 +26,7 @@ public class Product {
         this.imagen = imagen;
     }
 
-    public Product(int idlibros, String nombre, String categoria, int condicion, double precio, String detalle, int cantidad, byte[] imagen) {
+    public Product(int idproductos, String nombre, String categoria, int condicion, double precio, String detalle, int cantidad, byte[] imagen) {
         this.idproductos = idproductos;
         this.nombre = nombre;
         this.categoria = categoria;

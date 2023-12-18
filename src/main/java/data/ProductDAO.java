@@ -90,7 +90,7 @@ public class ProductDAO {
         return registros;
     }
     
-    public static Product sellecionarPorId(int id) {
+    public static Product selecionarPorId(int id) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -185,8 +185,5 @@ public class ProductDAO {
         }
         return registros;
     }
-
-    public static Product seleccionarPorId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 }
