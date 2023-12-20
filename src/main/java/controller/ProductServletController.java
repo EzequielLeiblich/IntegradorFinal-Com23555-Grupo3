@@ -81,7 +81,7 @@ public class ProductServletController extends HttpServlet{
             case "add" ->{
                 String nombre = req.getParameter("nombre");
                 String categoria = req.getParameter("categoria");
-                int condicion = Integer.parseInt(req.getParameter("condicion"));
+                String condicion = req.getParameter("condicion");
                 int cantidad = Integer.parseInt(req.getParameter("cantidad"));
                 String detalle = req.getParameter("detalle");
                 double precio = Double.parseDouble(req.getParameter("precio"));
@@ -105,7 +105,7 @@ public class ProductServletController extends HttpServlet{
                     int id= Integer.parseInt(req.getParameter("id"));
                     String nombre = req.getParameter("nombre");
                     String categoria = req.getParameter("categoria");
-                    int condicion = Integer.parseInt(req.getParameter("condicion"));
+                    String condicion = req.getParameter("condicion");
                     int cantidad = Integer.parseInt(req.getParameter("cantidad"));
                     String detalle = req.getParameter("detalle");
                     double precio = Double.parseDouble(req.getParameter("precio"));

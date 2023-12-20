@@ -6,11 +6,12 @@ import java.util.*;
 import model.Product;
 
 public class ProductDAO {
+    
     static final String SQL_SELECT = "SELECT * FROM productos";
     
     static final String SQL_SELECT_BY_ID = "SELECT * FROM productos WHERE idproductos = ?";
     
-    static final String SQL_INSERT = "INSTERT INTO productos(nombre, categoria, condicion, precio, cantidad, imagen, detalle) VALUES(?, ?, ?, ?, ?, ?, ?";
+    static final String SQL_INSERT = "INSERT INTO productos(nombre, categoria, condicion, precio, cantidad, imagen, detalle) VALUES(?, ?, ?, ?, ?, ?, ?)";
     
     static final String SQL_UPDATE = "UPDATE productos SET nombre = ?, categoria = ?, condicion = ?, precio= ?, cantidad=?, detalle=? WHERE idproductos = ?";
     
@@ -31,7 +32,7 @@ public class ProductDAO {
                 int idproducto = rs.getInt(1);
                 String nombre = rs.getString("nombre");
                 String categoria = rs.getString("categoria");
-                int condicion = rs.getInt("condicion");
+                String condicion = rs.getString("condicion");
                 double precio = rs.getDouble("precio");
                 String detalle = rs.getString("detalle");
                 int cantidad = rs.getInt("cantidad");
@@ -66,7 +67,7 @@ public class ProductDAO {
             stmt = conn.prepareStatement(SQL_INSERT);
             stmt.setString(1, producto.getNombre());
             stmt.setString(2, producto.getCategoria());
-            stmt.setInt(3, producto.getCondicion());
+            stmt.setString(3, producto.getCondicion());
             stmt.setDouble(4, producto.getPrecio());
             stmt.setInt(5, producto.getCantidad());
             
@@ -90,7 +91,7 @@ public class ProductDAO {
         return registros;
     }
     
-    public static Product selecionarPorId(int id) {
+    public static Product seleccionarPorId(int id) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -106,16 +107,15 @@ public class ProductDAO {
                 int idproductos = rs.getInt("idproductos");
                 String nombre = rs.getString("nombre");
                 String categoria = rs.getString("categoria");
-                int condicion = rs.getInt("condicion");
+                String condicion = rs.getString("condicion");
                 String detalle = rs.getString("detalle");
                 double precio = rs.getDouble("precio");
                 int cantidad = rs.getInt("cantidad");
-                
+
                 Blob blob = rs.getBlob("imagen");
-                byte[] imagenBytes = blob.getBytes(1, (int)blob.length());
-                
+                byte[] imagenBytes = blob.getBytes(1, (int) blob.length());
+
                 producto = new Product(idproductos, nombre, categoria, condicion, precio, detalle, cantidad, imagenBytes);
-                
             }
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
@@ -165,7 +165,7 @@ public class ProductDAO {
             stmt = conn.prepareStatement(SQL_UPDATE);
             stmt.setString(1, producto.getNombre());
             stmt.setString(2, producto.getCategoria());
-            stmt.setInt(3, producto.getCondicion());
+            stmt.setString(3, producto.getCondicion());
             stmt.setDouble(4, producto.getPrecio());
             stmt.setInt(5, producto.getCantidad());
             stmt.setString(6, producto.getDetalle());

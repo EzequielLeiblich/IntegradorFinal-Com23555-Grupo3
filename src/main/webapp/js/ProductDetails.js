@@ -39,9 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
                                     <h2 class="card-title">${data.nombre}</h2>
                                 </li>
                                 <li class="list-group-item">Categoria: ${data.categoria}</li> 
-                                <li class="list-group-item">Paginas: ${data.condicion}</li> 
+                                <li class="list-group-item">Condicion: ${data.condicion}</li> 
                                 <li class="list-group-item">Sinopsis: ${data.detalle}</li> 
-                                <li class="list-group-item">Copias Disponibles: ${data.cantidad}</li> 
+                                <li class="list-group-item">Cantidad: ${data.cantidad}</li> 
                                 <li class="list-group-item">
                                     <h5>Precio: ${data.precio}</h5>  
                                 </li> 

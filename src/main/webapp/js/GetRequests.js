@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     </div>
                 </div>
             `;
-                productCards.appendChild(card);
+                productsCards.appendChild(card);
         });
     }
     
