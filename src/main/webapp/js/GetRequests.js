@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
     searchForm.addEventListener("submit", function(e){
         e.preventDefault();
         const searchTerm = searchForm.querySelector("input[type='search']").value;
-        filterProdructs(searchTerm);
+        filterProducts(searchTerm);
     });
     
     productCards.addEventListener("click", function(e){

@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             </div>
 
                             <div class="form-floating my-3">
-                                <input type="number" class="form-control" name="precio" id="precio" placeholder="precio" value="${objetoLibro.precio}" required/>
+                                <input type="number" class="form-control" name="precio" id="precio" placeholder="precio" value="${objetoProducto.precio}" required/>
                                 <label  for="precio">Precio</label>
                             </div>
                         </div>

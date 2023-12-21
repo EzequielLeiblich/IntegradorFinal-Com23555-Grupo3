@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(){
                         precioElement.value = "";
                         imageElement.value = "";
                         imagenContainer.classList.add("d-none");
-                    },3000);
+                    },3000)
                 });
     });
     

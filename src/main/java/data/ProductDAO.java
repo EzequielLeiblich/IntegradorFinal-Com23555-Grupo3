@@ -7,15 +7,15 @@ import model.Product;
 
 public class ProductDAO {
     
-    static final String SQL_SELECT = "SELECT * FROM productos";
+    private static final String SQL_SELECT = "SELECT * FROM productos";
     
-    static final String SQL_SELECT_BY_ID = "SELECT * FROM productos WHERE idproductos = ?";
+    private static final String SQL_SELECT_BY_ID = "SELECT * FROM productos WHERE idproductos = ?";
     
-    static final String SQL_INSERT = "INSERT INTO productos(nombre, categoria, condicion, precio, cantidad, imagen, detalle) VALUES(?, ?, ?, ?, ?, ?, ?)";
+    private static final String SQL_INSERT = "INSERT INTO productos(nombre, categoria, condicion, precio, cantidad, imagen, detalle) VALUES(?, ?, ?, ?, ?, ?, ?)";
     
-    static final String SQL_UPDATE = "UPDATE productos SET nombre = ?, categoria = ?, condicion = ?, precio= ?, cantidad=?, detalle=? WHERE idproductos = ?";
+    private static final String SQL_UPDATE = "UPDATE productos SET nombre = ?, categoria = ?, condicion = ?, precio= ?, cantidad=?, detalle=? WHERE idproductos = ?";
     
-    static final String SQL_DELETE = "DELETE FROM productos WHERE idproductos = ?";
+    private static final String SQL_DELETE = "DELETE FROM productos WHERE idproductos = ?";
     
     public static List<Product> seleccionar() {
         Connection conn = null;
@@ -55,6 +55,7 @@ public class ProductDAO {
                 ex.printStackTrace(System.out);
             } 
         }
+        
         return productos;
     }
     
@@ -74,6 +75,7 @@ public class ProductDAO {
             Blob imagenBlob = conn.createBlob();
             imagenBlob.setBytes(1, producto.getImagen());
             stmt.setBlob(6, imagenBlob);
+            
             stmt.setString(7, producto.getDetalle());
             
             registros = stmt.executeUpdate();
@@ -113,9 +115,11 @@ public class ProductDAO {
                 int cantidad = rs.getInt("cantidad");
 
                 Blob blob = rs.getBlob("imagen");
-                byte[] imagenBytes = blob.getBytes(1, (int) blob.length());
+                byte[] imagenBytes = blob.getBytes(1, (int)blob.length());
 
                 producto = new Product(idproductos, nombre, categoria, condicion, precio, detalle, cantidad, imagenBytes);
+            
+            
             }
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);

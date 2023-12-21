@@ -113,9 +113,9 @@ public class ProductServletController extends HttpServlet{
                     Part filePart = req.getPart("imagen");
                     byte[] imageBytes = IOUtils.toByteArray(filePart.getInputStream());
 
-                    Product product = new Product(id,nombre, categoria, condicion, precio, detalle, cantidad, imageBytes);
+                    Product producto = new Product(id,nombre, categoria, condicion, precio, detalle, cantidad, imageBytes);
 
-                    ProductDAO.actualizar(product);
+                    ProductDAO.actualizar(producto);
 
                     res.setContentType("application/json");
                     res.setCharacterEncoding("UTF-8");
