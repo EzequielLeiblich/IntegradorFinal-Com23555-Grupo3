@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
     
-    function filterProdructs(palabra){
+    function filterProducts(palabra){
         const productosFiltrados = products.filter( product=>{
            return product.nombre.toLowerCase().includes(palabra.toLowerCase()); 
         });
