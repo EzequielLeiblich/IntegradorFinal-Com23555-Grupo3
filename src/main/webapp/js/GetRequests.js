@@ -1,3 +1,5 @@
+/* global productsCards */
+
 document.addEventListener("DOMContentLoaded", function() {
     const productCards = document.getElementById("productsCards");
     const products =[];
@@ -18,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                 </div>
                             </div>
                         </div>
-                    `
+                    `;
                 });
             });
     }
